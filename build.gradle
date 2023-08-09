@@ -1,0 +1,73 @@
+buildscript {
+
+
+    repositories {
+        maven { url 'https://maven.aliyun.com/repository/central' }
+        maven { url 'https://maven.aliyun.com/repository/public' }
+        maven { url 'https://maven.aliyun.com/repository/gradle-plugin' }
+        maven { url 'https://maven.aliyun.com/repository/apache-snapshots' }
+        mavenCentral()
+    }
+}
+
+plugins {
+    id 'groovy'
+    id 'java'
+    id 'org.springframework.boot' version "3.1.2"
+    id 'io.spring.dependency-management' version '1.1.2'
+}
+
+
+allprojects {
+
+    apply plugin: 'groovy'
+    apply plugin: 'java'
+
+    java {
+        sourceCompatibility = '17'
+    }
+    group = 'roc'
+    version = '0.0.1-SNAPSHOT'
+
+    repositories {
+        maven { url 'https://maven.aliyun.com/repository/central' }
+        maven { url 'https://maven.aliyun.com/repository/public' }
+        maven { url 'https://maven.aliyun.com/repository/gradle-plugin' }
+        maven { url 'https://maven.aliyun.com/repository/apache-snapshots' }
+        mavenCentral()
+    }
+
+
+
+
+}
+
+subprojects {
+
+    sourceCompatibility = '17'
+    targetCompatibility = '17'
+
+    tasks.withType(JavaCompile).tap {
+        configureEach {
+            options.encoding = 'utf8'
+        }
+    }
+
+    ext {
+        springbootVersion = '3.1.2'
+        groovyVersion = '4.0.2'
+        guavaVersion = '32.1.1-jre'
+    }
+
+    dependencies {
+        implementation "org.apache.groovy:groovy:$groovyVersion"
+    }
+
+}
+
+
+configurations {
+
+}
+
+
