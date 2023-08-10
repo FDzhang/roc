@@ -60,7 +60,7 @@ subprojects {
     }
 
     dependencies {
-        implementation "org.apache.groovy:groovy:$groovyVersion"
+        implementation "org.apache.groovy:$groovyVersion"
     }
 
 }
